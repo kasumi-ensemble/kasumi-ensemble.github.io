@@ -1,0 +1,5 @@
+@font-face {
+ font-family: Gessele;
+ src: local('Gessele Regular'), local('Gessele'),
+      url('Gessele.woff') format('woff'),
+      url('Gessele.ttf') format('ttf');}
