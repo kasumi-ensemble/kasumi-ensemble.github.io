@@ -33,6 +33,11 @@ body {
  background-repeat:no-repeat;
  background-attachment:fixed;
 }
+u {
+ text-decoration: none;
+ display: inline-block;
+}
+
 div.bg {
  background-image: url('damask-pattern-md.png');
  background-repeat: repeat;
@@ -40,7 +45,7 @@ div.bg {
 
 div.main {
  margin: 0 auto;
- width: 800px;
+ max-width: 800px;
  height: 100%;
  min-height: 100%;
  box-sizing: border-box;
@@ -62,9 +67,9 @@ div.title h2 {
 div.title h1 {
  font-size: 96pt;}
 div.title h2 {
- font-size: 48pt;}
+ font-size: 60pt;}
 div.title p {
- margin: 1em 0 0 0;
+ line-height: 1.8;
  font-size: 20pt;}
 
 div.info {
@@ -82,9 +87,41 @@ div.info .day {
 div.info .time {
  font-size: 200%;}
 div.info .place {
+ line-height: 1.8;
  text-align: right;}
 div.info .place small {
  font-size: 70%;}
+
+@media screen and (max-width: 600px) {
+ div.title h1 {
+  font-size: 20vw;
+ }
+ div.title h2 {
+  font-size: 15vw;
+ }
+ div.title p {
+  font-size: 5vw;
+ }
+ div.info .date {
+  font-size: 5vw;
+ }
+ div.info .place {
+  font-size: 80%;
+ }
+}
+@media screen and (max-width: 768px) {
+ div.info {
+  padding: 20px 0;
+ }
+ div.info .date {
+  text-align: center;
+ }
+ div.info .place {
+  text-align: center;
+ }
+}
+
+
 
 div.program {
  font-size: 13pt;
@@ -93,11 +130,15 @@ div.program {
  color: #555;}
 div.program ul {
  margin: 50px 0;
+ padding: 0;
  list-style-type: none;}
 div.program .title {
  font-size: 140%;
  font-weight: bold;
  opacity: .95;}
+div.program .title small {
+ font-weight: normal;
+}
 div.program .en {
  font-family: 'Snell Roundhand Script',cursive;
  font-size: 90%;}
@@ -123,6 +164,9 @@ footer {
  color: var(--dark-gold);
  text-align: center;
 }
+footer a {
+ text-decoration: none;
+}
 
 article {
  margin: 3em 3em;
@@ -131,18 +175,11 @@ article {
  color: #555;
 }
 
-@media screen and (max-width: 800px){
- article {
-  font-size: calc(300% - 3.5vw);
- }
-}
-
 @media screen and (max-width: 450px){
  article {
   margin: 3em 1em;
  }
 }
-
 
 article h2 {
  font-size: 110%;
@@ -150,10 +187,6 @@ article h2 {
 article ul {
  padding: 0;
  list-style-type:none;
-}
-article u {
- text-decoration: none;
- display: inline-block;
 }
 
 article .members {
@@ -191,13 +224,13 @@ hr {
 
 <div class="title">
 <h1>Kasumi Ensemble</h1>
-<h2><sup>the 7th</sup> Chamber Concert <sup style="visibility:hidden">the 7th</sup></h2>
-<p>第7回　霞アンサンブル　室内楽コンサート</p>
+<h2><sup>the 7th</sup> Chamber Concert</h2>
+<p><u>霞アンサンブル</u> <u>第7回 室内楽コンサート</u></p>
 </div>
 
 <div class="info">
-<p class="date">2018.<span class="day">12.18</span> Tue. <span class="time">19:00-</span></p>
-<p class="place"><small>広島市南区民文化センター</small> スタジオ</p>
+<p class="date"><u>2018.<span class="day">12.18</span> Tue.</u> <u><span class="time">19:00-</span></u></p>
+<p class="place"><u><small>広島市南区民文化センター</small></u> <u>スタジオ</u></p>
 </div>
 
 <div class="program">
@@ -317,7 +350,7 @@ function m(){
 <script>m()</script>
 </article>
 
-<footer>&copy; 2015 Kasumi Ensemble &middot; <a href="http://www.dafont.com/gessele.font">Gessele Font</a> &middot; <a href="http://www.fontpalace.com/font-download/Snell+Roundhand+Script/">Snell Roundhand Script</a> &middot; <a href="http://www.clker.com/clipart-damask-pattern.html">damask pattern</a></footer>
+<footer>&copy; 2015 Kasumi Ensemble <u>&middot; <a href="http://www.dafont.com/gessele.font">Gessele Font</a> &middot; <a href="http://www.fontpalace.com/font-download/Snell+Roundhand+Script/">Snell Roundhand Script</a> &middot; <a href="http://www.clker.com/clipart-damask-pattern.html">Damask Pattern</a></u></footer>
 
 </div><!-- /.main -->
 
