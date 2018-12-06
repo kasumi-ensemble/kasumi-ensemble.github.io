@@ -2,7 +2,9 @@
 <meta charset="utf-8">
 <meta name="author" content="霞アンサンブル">
 <meta name="description" content="広島大学霞管弦楽団有志による室内楽団、霞アンサンブルのWebサイト。第7回室内楽コンサートは2018.12.18 19:00- 広島南区民文化センター スタジオにて。">
-<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-title" content="霞アンサンブル">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="viewport" content="initial-scale=1.0">
 <script src="https://use.typekit.net/wzu1vkp.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 <title>霞アンサンブル</title>
@@ -13,7 +15,6 @@
 :root {
  --gold: #ddb178;
  --dark-gold: #bf812f;
-
  --active-bg: radial-gradient(#b40,#930);
  --inactive-bg: radial-gradient(#baa89e,#998e89);
 }
@@ -126,8 +127,16 @@ footer {
 article {
  margin: 3em 3em;
  font-weight: 200;
+ font-size: 10pt;
  color: #555;
 }
+
+@media screen and (max-width: 800px){
+ article {
+  font-size: calc(300% - 3.5vw);
+ }
+}
+
 article h2 {
  font-size: 110%;
 }
@@ -139,7 +148,7 @@ article ul {
 article .members {
  font-family:'Hiragino Sans','Meiryo',sans-serif;
  font-weight:200;
- font-size: 8pt;
+ font-size: 80%;
 }
 article .members u {
  text-decoration: none;
