@@ -71,15 +71,15 @@ u {
  display: inline-block;
 }
 @media screen and (min-width: 800px){
- .curtain.hidden ~ .bg {
+ .curtain ~ .bg {
   background-image: url('damask-pattern-md.png');
   background-repeat: repeat;
-  animation: light 2.5s .5s both;
+  background-color: rgba(0,0,0,1);
+  transition: background-color 5s;
  }
-}
-@keyframes light {
- from { background-color: rgba(0,0,0,1); }
- to   { background-color: rgba(0,0,0,0); }
+ .curtain.hidden ~ .bg {
+  background-color: rgba(0,0,0,0);
+ }
 }
 .curtain {
  position: fixed;
@@ -91,7 +91,7 @@ u {
  color: rgba(255,255,255,.7);
  background: #000;
  filter: opacity(1);
- transition: 1s;
+ transition: filter 1s;
 }
 .curtain.hidden {
  filter:opacity(0);
@@ -101,14 +101,14 @@ u {
  left:0; right: 0; top: 0; bottom: 0; margin: auto;
  width: 50vw; max-width: 300px;
  height: 50vh;
+ filter:opacity(0);
  animation: appear .5s .3s both;
 }
 @keyframes appear {
- from { filter:opacity(0); }
  to { filter:opacity(1); }
 }
 .curtain.hidden figure {
- display: none;
+ display: none; /* no transition */
 }
 .curtain #shape {
  margin: auto;
@@ -132,6 +132,7 @@ u {
  background: #fff;
  box-shadow: 0 0 20px #000;
 }
+
 .title {
  background: var(--active-bg);
  padding: 50px 0;
@@ -311,12 +312,16 @@ hr {
 </style>
 
 
-<div class="curtain"><figure><div id="shape"></div><figcaption>loading...</figcaption></figure></div>
+<div class="curtain">
+ <figure>
+  <div id="shape"></div><figcaption>loading...</figcaption>
+ </figure>
+</div>
 
 <div class="bg">
-
 <div class="main">
 
+<div class="poster">
 <div class="title">
 <h1>Kasumi Ensemble</h1>
 <h2><sup>the 7th</sup> Chamber Concert</h2>
@@ -343,6 +348,8 @@ hr {
 
 <div class="footer">
 <p><u>　◇入場無料　</u><u>◇開場 18:30／開演 19:00／終演 20:00（予定）</u></p>
+</div>
+
 </div>
 
 <hr>
@@ -439,8 +446,7 @@ hr {
 
 <footer>© 2015 Kasumi Ensemble <u>· <a href="https://www.dafont.com/gessele.font">Gessele Font</a> · <a href="https://www.fontpalace.com/font-download/Snell+Roundhand+Script/">Snell Roundhand Script</a> · <a href="https://www.clker.com/clipart-damask-pattern.html">Damask Pattern</a></u></footer>
 
-</div><!-- /.main -->
-
+</div>
 </div>
 
 <script>(function(){var r = "kas"+"umi.e"+"nsemb"+"le"+"@gm"+"ail.c"+"om"; document.getElementById("mail").innerHTML = '<a href="mailto:'+r+'">'+r+'</a>'})()</script>
