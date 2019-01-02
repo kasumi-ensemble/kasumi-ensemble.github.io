@@ -89,11 +89,12 @@ u {
  font-family: Helvetica,sans-serif;
  text-align: center;
  color: rgba(255,255,255,.7);
- background: rgba(0,0,0,1);
+ background: #000;
+ filter: opacity(1);
  transition: 1s;
 }
 .curtain.hidden {
- background: rgba(0,0,0,0);
+ filter:opacity(0);
 }
 .curtain figure {
  position: absolute;
@@ -101,15 +102,13 @@ u {
  width: 50vw; max-width: 300px;
  height: 50vh;
  animation: appear .5s .3s both;
- transition: .1s;
 }
 @keyframes appear {
- from { opacity: 0; }
- to { opacity: 1; }
+ from { filter:opacity(0); }
+ to { filter:opacity(1); }
 }
 .curtain.hidden figure {
- animation: none;
- opacity: 0;
+ display: none;
 }
 .curtain #shape {
  margin: auto;
@@ -117,11 +116,11 @@ u {
  height: 50px;
  background: #fff;
  border-radius: 50px;
- animation: load 1s ease-in-out .3s both alternate infinite;
+ animation: load 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) .3s infinite alternate;
 }
 @keyframes load {
- 0% { transform: scale(1); opacity: .5;}
- 100% { transform : scale(1.3); opacity: 1;}
+ 0% { transform: scale(1); filter:opacity(.5);}
+ 100% { transform : scale(1.3); filter:opacity:(1);}
 }
 .curtain figcaption {
  margin-top: 100px;
@@ -226,7 +225,7 @@ u {
 .program .piece {
  font-size: 140%;
  font-weight: bold;
- opacity: .95;
+ filter:opacity(.95);
 }
 .program .piece small {
  font-weight: normal;
@@ -312,7 +311,7 @@ hr {
 </style>
 
 
-<div class="curtain"><figure><div id="shape"></div><figcaption>loading</figcaption></figure></div>
+<div class="curtain"><figure><div id="shape"></div><figcaption>loading...</figcaption></figure></div>
 
 <div class="bg">
 
