@@ -8,24 +8,20 @@
 
   gtag('config', 'UA-74076422-3');
 </script>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="author" content="霞アンサンブル">
 <meta name="description" content="広島大学霞管弦楽団有志による室内楽団。">
 <meta name="apple-mobile-web-app-title" content="霞アンサンブル">
 <meta name="format-detection" content="telephone=no,address=no,email=no">
 <meta name="viewport" content="initial-scale=1.0">
-<script src="https://use.typekit.net/wzu1vkp.js"></script>
-<script>try{Typekit.load({ async: true });}catch(e){}</script>
 <title>霞アンサンブル</title>
-<link href="Gessele.css" id="webfont">
-<link href="Snell Roundhand Script.css" rel="stylesheet">
+<link class="webfont" href="Gessele.css">
+<link class="webfont" href="Snell Roundhand Script.css">
 <style>
-@charset 'UTF-8';
 :root {
  --gold: #ddb178;
  --dark-gold: #bf812f;
  --active-bg: radial-gradient(#b30,#920);
- --inactive-bg: radial-gradient(#baa89e,#998e89);
 }
 
 html {
@@ -57,7 +53,7 @@ div.bg {
 }
 
 div.main {
- margin: 0 auto;
+ margin: auto; /* */
  max-width: 800px;
  height: 100%;
  min-height: 100%;
@@ -155,7 +151,7 @@ div.program .en {
  font-size: 90%;}
 
 div.footer {
- margin: 0 auto;
+ margin: auto;  /* */
  padding: 2rem 0 4rem 0;
  color: #555;
  text-align: center;
@@ -228,11 +224,7 @@ a:hover,a:active {
 hr {
     border: 0;
     height: 1px;
-    background-image:         linear-gradient(left, rgba(221,177,120,0), rgba(221,177,120,0.75), rgba(221,177,120,0));
-    background-image: -webkit-linear-gradient(left, rgba(221,177,120,0), rgba(221,177,120,0.75), rgba(221,177,120,0));
-    background-image:    -moz-linear-gradient(left, rgba(221,177,120,0), rgba(221,177,120,0.75), rgba(221,177,120,0));
-    background-image:     -ms-linear-gradient(left, rgba(221,177,120,0), rgba(221,177,120,0.75), rgba(221,177,120,0));
-    background-image:      -o-linear-gradient(left, rgba(221,177,120,0), rgba(221,177,120,0.75), rgba(221,177,120,0));
+    background-image: linear-gradient(left, rgba(221,177,120,0), rgba(221,177,120,0.75), rgba(221,177,120,0));
 }
 </style>
 
@@ -356,20 +348,18 @@ hr {
 
 <article>
 <h1>お問合せ</h1>
-<script>
-function m(){
- var r = 'kas' + 'umi.e' + 'nsemb' + 'le' + '@gm' + 'ail.c' + 'om';
- document.write('<a href="mailto:' + r + '">' + r + '</a>');
-}
+<p id="mail"></p>
 </script>
-<script>m()</script>
 </article>
 
-<footer>&copy; 2015 Kasumi Ensemble <u>&middot; <a href="http://www.dafont.com/gessele.font">Gessele Font</a> &middot; <a href="http://www.fontpalace.com/font-download/Snell+Roundhand+Script/">Snell Roundhand Script</a> &middot; <a href="http://www.clker.com/clipart-damask-pattern.html">Damask Pattern</a></u></footer>
+<footer>© 2015 Kasumi Ensemble <u>· <a href="https://www.dafont.com/gessele.font">Gessele Font</a> · <a href="https://www.fontpalace.com/font-download/Snell+Roundhand+Script/">Snell Roundhand Script</a> · <a href="https://www.clker.com/clipart-damask-pattern.html">Damask Pattern</a></u></footer>
 
 </div><!-- /.main -->
 
 </div><!-- /.bg -->
 
 
-<script>(function(){document.getElementById('webfont').rel = 'stylesheet';})();</script>
+<script>(function(){Array.prototype.slice.call(document.getElementsByClassName("webfont")).map(l => l.rel = "stylesheet")})()</script>
+<script>(function(){var r = "kas"+"umi.e"+"nsemb"+"le"+"@gm"+"ail.c"+"om"; document.getElementById("mail").innerHTML = '<a href="mailto:'+r+'">'+r+'</a>'})()</script>
+<script src="https://use.typekit.net/wzu1vkp.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
