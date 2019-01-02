@@ -46,7 +46,9 @@
  --dark-gold: #bf812f;
  --active-bg: radial-gradient(#b30,#920);
 }
-
+* {
+ box-sizing: border-box;
+}
 html {
  height: 100%;
  -webkit-text-size-adjust: 100%;
@@ -54,13 +56,12 @@ html {
 body {
  width: 100vw;
  height: 100vh;
- box-sizing: border-box;
  margin: 0;
  padding: 0;
  color: var(--gold);
  text-shadow: 0 0 10px rgba(255,255,255,.5);
  font: normal 10.5pt/2 'Hiragino Mincho ProN','source-han-serif-japanese',serif;
- background-image:radial-gradient(#044,#000);
+ background-image:radial-gradient(#033,#000);
  background-repeat:no-repeat;
  background-attachment:fixed;
  overflow: scroll;
@@ -69,111 +70,172 @@ u {
  text-decoration: none;
  display: inline-block;
 }
-
-div.bg {
- background-image: url('damask-pattern-md.png');
- background-repeat: repeat;
+@media screen and (min-width: 800px){
+ .curtain.hidden ~ .bg {
+  background-image: url('damask-pattern-black.png');
+  background-repeat: repeat;
+  animation: light 2.5s .5s both;
+ }
 }
-
-div.main {
+@keyframes light {
+ from { background-color: rgba(0,0,0,1); }
+ to   { background-color: rgba(0,0,0,0); }
+}
+.curtain {
+ position: fixed;
+ z-index: 1000;
+ width: 100vw;
+ height: 100vh;
+ font-family: Helvetica,sans-serif;
+ text-align: center;
+ color: rgba(255,255,255,.7);
+ background: rgba(0,0,0,1);
+ transition: 1s;
+}
+.curtain.hidden {
+ background: rgba(0,0,0,0);
+}
+.curtain figure {
+ position: absolute;
+ left:0; right: 0; top: 0; bottom: 0; margin: auto;
+ width: 50vw; max-width: 300px;
+ height: 50vh;
+ animation: appear .5s .3s both;
+ transition: .1s;
+}
+@keyframes appear {
+ from { opacity: 0; }
+ to { opacity: 1; }
+}
+.curtain.hidden figure {
+ animation: none;
+ opacity: 0;
+}
+.curtain #shape {
+ margin: auto;
+ width: 50px;
+ height: 50px;
+ background: #fff;
+ border-radius: 50px;
+ animation: load 1s ease-in-out .3s both alternate infinite;
+}
+@keyframes load {
+ 0% { transform: scale(1); opacity: .5;}
+ 100% { transform : scale(1.3); opacity: 1;}
+}
+.curtain figcaption {
+ margin-top: 100px;
+}
+.main {
  margin: auto;
  max-width: 800px;
- height: 100%;
  min-height: 100%;
- box-sizing: border-box;
  background: #fff;
- box-shadow: 0 0 20px #000;}
-body > div.main {
- height: auto;}
-
-div.title {
+ box-shadow: 0 0 20px #000;
+}
+.title {
  background: var(--active-bg);
  padding: 50px 0;
  text-align: center;
- line-height: 0.9;}
-div.title h1,
-div.title h2 {
+ line-height: 0.9;
+}
+.title h1,
+.title h2 {
  margin: 0;
  font-family: 'Gessele','Snell Roundhand Script',cursive;
- font-weight: normal;}
-div.title h1 {
- font-size: 96pt;}
-div.title h2 {
- font-size: 60pt;}
-div.title p {
+ font-weight: normal;
+}
+.title h1 {
+ font-size: 20vw;
+}
+.title h2 {
+ font-size: 15vw;
+}
+.title p {
  line-height: 1.8;
- font-size: 20pt;}
-
-div.info {
+ font-size: 5vw;
+}
+.info {
  color: var(--dark-gold);
- padding: 20px 80px;
+ padding: 20px 0;
  line-height: 1;
- font-family: 'Snell Roundhand Script','Hiragino Mincho ProN','source-han-serif-japanese',serif;}
-div.info {
- font-size: 20pt;}
-div.info .date {
- text-align: left;
- font-size: 130%;}
-div.info .day {
- font-size: 350%;}
-div.info .time {
- font-size: 200%;}
-div.info .place {
+ font-family: 'Snell Roundhand Script','Hiragino Mincho ProN','source-han-serif-japanese',serif;
+}
+.info {
+ font-size: 20pt;
+}
+.info .date {
+ text-align: center;
+ font-size: 5vw;
+}
+.info .day {
+ font-size: 350%;
+}
+.info .time {
+ font-size: 200%;
+}
+.info .place {
  line-height: 1.8;
- text-align: right;}
-div.info .place small {
- font-size: 70%;}
-
-@media screen and (max-width: 600px) {
- div.title h1 {
-  font-size: 20vw;
- }
- div.title h2 {
-  font-size: 15vw;
- }
- div.title p {
-  font-size: 5vw;
- }
- div.info .date {
-  font-size: 5vw;
- }
- div.info .place {
-  font-size: 80%;
- }
+ text-align: center;
+ font-size: 80%;
 }
-@media screen and (max-width: 768px) {
- div.info {
-  padding: 20px 0;
- }
- div.info .date {
-  text-align: center;
- }
- div.info .place {
-  text-align: center;
- }
+.info .place small {
+ font-size: 70%;
 }
 
-div.program {
+@media screen and (min-width: 600px) {
+ .title h1 {
+  font-size: 96pt;
+ }
+ .title h2 {
+  font-size: 60pt;
+ }
+ .title p {
+  font-size: 20pt;
+ }
+ .info .date {
+  font-size: 130%;
+ }
+ .info .place {
+  font-size: 100%;
+ }
+}
+@media screen and (min-width: 768px) {
+ .info {
+  padding: 20px 80px;
+ }
+ .info .date {
+  text-align: left;
+ }
+ .info .place {
+  text-align: right;
+ }
+}
+
+.program {
  font-size: 13pt;
  text-align: center;
  padding: 1px;
- color: #555;}
-div.program ul {
+ color: #555;
+}
+.program ul {
  margin: 50px 0;
  padding: 0;
- list-style-type: none;}
-div.program .title {
+ list-style: none;
+}
+.program .piece {
  font-size: 140%;
  font-weight: bold;
- opacity: .95;}
-div.program .title small {
+ opacity: .95;
+}
+.program .piece small {
  font-weight: normal;
 }
-div.program .en {
+.program .en {
  font-family: 'Snell Roundhand Script',cursive;
- font-size: 90%;}
-
-div.footer {
+ font-size: 90%;
+}
+.footer {
  margin: auto;
  padding: 2rem 0 4rem 0;
  color: #555;
@@ -182,12 +244,13 @@ div.footer {
  font-family:'Hiragino Sans','Meiryo',sans-serif;
  font-weight: 200;
 }
-div.footer p {
+.footer p {
  margin: 0;
 }
 
 footer {
- margin: 3em auto;
+ margin: 3em auto 0;
+ padding: 0 0 10em;
  font-size: 60%;
  font-family:'Hiragino Sans','Meiryo',sans-serif;
  font-weight: 200;
@@ -199,20 +262,20 @@ footer a {
 }
 
 article {
- margin: 3em 3em;
+ margin: 3em 1em;
  font-weight: 200;
  font-size: 10pt;
  color: #555;
  letter-spacing: -.02em;
 }
 
-@media screen and (max-width: 450px){
+@media screen and (min-width: 450px){
  article {
-  margin: 3em 1em;
+  margin: 3em 3em;
  }
 }
 
-article.message {
+.message {
  margin: 10em auto;
  max-width: 540px;
  padding: 0 1em;
@@ -223,17 +286,15 @@ article h2 {
 }
 article ul {
  padding: 0;
- list-style-type:none;
+ list-style: none;
 }
-
 article .members {
  font-family:'Hiragino Sans','Meiryo',sans-serif;
  font-weight:200;
  font-size: 80%;
 }
-
 a {
- transition: linear .1s;
+ transition: .1s;
  text-shadow: none;
 }
 a:link,
@@ -243,13 +304,15 @@ a:visited {
 a:hover,a:active {
  color: var(--dark-gold);
 }
-
 hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(left, rgba(221,177,120,0), rgba(221,177,120,0.75), rgba(221,177,120,0));
+ border: 0;
+ height: 1px;
+ background-image: linear-gradient(to left, rgba(221,177,120,0), rgba(221,177,120,0.75), rgba(221,177,120,0));
 }
 </style>
+
+
+<div class="curtain"><figure><div id="shape"></div><figcaption>loading</figcaption></figure></div>
 
 <div class="bg">
 
@@ -269,11 +332,11 @@ hr {
 <div class="program">
 <hr>
 <ul>
-<li>C.サン＝サーンス：<span class="title">タランテラ</span>
+<li>C.サン＝サーンス：<span class="piece">タランテラ</span>
 <li><span class="en">Camille Saint-Saëns : Tarantella, op.6</span>
-<li>C.ドビュッシー：<span class="title">小組曲</span>
+<li>C.ドビュッシー：<span class="piece">小組曲</span>
 <li><span class="en">Claude Debussy : Petite Suite</span>
-<li>G.フォーレ：<span class="title">ドリー</span>
+<li>G.フォーレ：<span class="piece">ドリー</span>
 <li><span class="en">Gabriel Fauré : Dolly Suite, op.56</span>
 <li>ほか
 </ul>
@@ -379,8 +442,14 @@ hr {
 
 </div><!-- /.main -->
 
-</div><!-- /.bg -->
+</div>
 
-
-<!-- script>(function(){Array.prototype.slice.call(document.getElementsByClassName("webfont")).map(l => l.rel = "stylesheet")})()</script -->
 <script>(function(){var r = "kas"+"umi.e"+"nsemb"+"le"+"@gm"+"ail.c"+"om"; document.getElementById("mail").innerHTML = '<a href="mailto:'+r+'">'+r+'</a>'})()</script>
+<script>
+const d = document.getElementsByClassName("curtain")[0];
+var t = setTimeout(function(){d.classList.add("hidden")},6000); /* ロードに6秒以上かかったら画面表示 */
+window.addEventListener("load",function(){
+ clearTimeout(t);
+ d.classList.add("hidden");
+ setTimeout(function(){d.style.display = "none"}, 2000);
+})</script>
