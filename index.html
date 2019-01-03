@@ -58,6 +58,9 @@
  --gold: hsl(34,60%,67%);
  --dark-gold: hsl(34,60%,56%);
  --active-bg: radial-gradient(#b30,#920);
+ --serif-ja: 'Hiragino Mincho ProN','source-han-serif-japanese',serif;
+ --sans-ja:  'Hiragino Sans','Meiryo',sans-serif;
+ --sans-en:  'Helvetica','Arial',sans-serif;
 }
 * {
  box-sizing: border-box;
@@ -71,7 +74,7 @@ body {
  color: var(--gold);
  text-shadow: 0 0 10px rgba(255,255,255,.5);
  background-color: #000; /* fallback */
- font: normal 10.5pt/2 'Hiragino Mincho ProN','source-han-serif-japanese',serif;
+ font: normal 10.5pt/2 var(--serif-ja);
 }
 u {
  text-decoration: none;
@@ -82,7 +85,8 @@ u {
  z-index: 1000;
  width: 100vw;
  height: 100vh;
- font-family: Helvetica,sans-serif;
+ font-family: var(--sans-en);
+ font-weight: 200;
  text-align: center;
  color: rgba(255,255,255,.7);
  background: #000;
@@ -158,7 +162,7 @@ u {
 .title h1,
 .title h2 {
  margin: 0;
- font-family: 'Gessele','Snell Roundhand',cursive;
+ font-family: 'Gessele',cursive;
  font-weight: normal;
 }
 .title h1 {
@@ -175,7 +179,7 @@ u {
  color: var(--dark-gold);
  padding: 20px 0;
  line-height: 1;
- font-family: 'Snell Roundhand','Hiragino Mincho ProN','source-han-serif-japanese',serif;
+ font-family: 'Snell Roundhand',var(--serif-ja);
 }
 .info {
  font-size: 20pt;
@@ -258,7 +262,7 @@ u {
  color: #555;
  text-align: center;
  font-size: 8pt;
- font-family:'Hiragino Sans','Meiryo',sans-serif;
+ font-family: var(--sans-ja);
  font-weight: 200;
 }
 .footer p {
@@ -269,7 +273,7 @@ footer {
  margin: 3em auto 0;
  padding: 0 0 10em;
  font-size: 60%;
- font-family:'Hiragino Sans','Meiryo',sans-serif;
+ font-family: var(--sans-en);
  font-weight: 200;
  color: var(--dark-gold);
  text-align: center;
@@ -280,7 +284,6 @@ footer a {
 
 article {
  margin: 3em 1em;
- font-weight: 200;
  font-size: 10pt;
  color: #555;
  letter-spacing: -.02em;
@@ -306,7 +309,7 @@ article ul {
  list-style: none;
 }
 article .members {
- font-family:'Hiragino Sans','Meiryo',sans-serif;
+ font-family: var(--sans-ja);
  font-weight:200;
  font-size: 80%;
 }
