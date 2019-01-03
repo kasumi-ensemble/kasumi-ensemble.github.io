@@ -35,17 +35,28 @@
  font-display: swap;
 }
 @font-face {
- font-family: 'Snell Roundhand Script';
- src: local('Snell Roundhand'), local('Snell Roundhand Script'),
+ font-family: 'Snell Roundhand';
+ font-weight: normal;
+ src: local('SnellRoundhand'), local('Snell Roundhand'),
       /* no woff2 */
-      url('Snell-Roundhand-Script.woff') format('woff'),
-      url('Snell-Roundhand-Script.ttf') format('ttf');
+      url('SnellRoundhand.woff') format('woff'),
+      url('SnellRoundhand.ttf') format('ttf');
+ font-display: swap;
+}
+@font-face {
+ font-family: 'Snell Roundhand';
+ font-weight: bold;
+ src: local('SnellRoundhand-Bold'), local('Snell Roundhand Bold'),
+      /* no woff2 */
+      url('SnellRoundhand-Bold.woff') format('woff'),
+      url('SnellRoundhand-Bold.ttf') format('ttf');
  font-display: swap;
 }
 
+
 :root {
- --gold: #ddb178;
- --dark-gold: #bf812f;
+ --gold: hsl(34,60%,67%);
+ --dark-gold: hsl(34,60%,56%);
  --active-bg: radial-gradient(#b30,#920);
 }
 * {
@@ -147,7 +158,7 @@ u {
 .title h1,
 .title h2 {
  margin: 0;
- font-family: 'Gessele','Snell Roundhand Script',cursive;
+ font-family: 'Gessele','Snell Roundhand',cursive;
  font-weight: normal;
 }
 .title h1 {
@@ -164,7 +175,7 @@ u {
  color: var(--dark-gold);
  padding: 20px 0;
  line-height: 1;
- font-family: 'Snell Roundhand Script','Hiragino Mincho ProN','source-han-serif-japanese',serif;
+ font-family: 'Snell Roundhand','Hiragino Mincho ProN','source-han-serif-japanese',serif;
 }
 .info {
  font-size: 20pt;
@@ -175,6 +186,7 @@ u {
 }
 .info .day {
  font-size: 350%;
+ font-weight: bold;
 }
 .info .time {
  font-size: 200%;
@@ -188,7 +200,7 @@ u {
  font-size: 70%;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 640px) {
  .title h1 {
   font-size: 96pt;
  }
@@ -237,7 +249,7 @@ u {
  font-weight: normal;
 }
 .program .en {
- font-family: 'Snell Roundhand Script',cursive;
+ font-family: 'Snell Roundhand',cursive;
  font-size: 90%;
 }
 .footer {
