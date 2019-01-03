@@ -52,36 +52,18 @@
  box-sizing: border-box;
 }
 html {
- height: 100%;
  -webkit-text-size-adjust: 100%;
 }
 body {
- width: 100vw;
- height: 100vh;
  margin: 0;
  padding: 0;
  color: var(--gold);
  text-shadow: 0 0 10px rgba(255,255,255,.5);
  font: normal 10.5pt/2 'Hiragino Mincho ProN','source-han-serif-japanese',serif;
- background-image:radial-gradient(#033,#000);
- background-repeat:no-repeat;
- background-attachment:fixed;
- overflow: scroll;
 }
 u {
  text-decoration: none;
  display: inline-block;
-}
-@media screen and (min-width: 800px){
- .curtain ~ .bg {
-  background-image: url('damask-pattern-md.png');
-  background-repeat: repeat;
-  background-color: rgba(0,0,0,1);
-  transition: background-color 5s;
- }
- .curtain.hidden ~ .bg {
-  background-color: rgba(0,0,0,0);
- }
 }
 .curtain {
  position: fixed;
@@ -127,6 +109,26 @@ u {
 .curtain figcaption {
  margin-top: 100px;
 }
+.bg-gradient {
+ position: fixed;
+ width: 100vw;
+ height: 100vh;
+ background-image:radial-gradient(#033,#000);
+ background-repeat:no-repeat;
+ z-index: -1000;
+}
+@media screen and (min-width: 800px){
+ .curtain ~ .bg-pattern {
+  background-image: url('damask-pattern-md.png');
+  background-repeat: repeat;
+  background-color: rgba(0,0,0,1);
+  transition: background-color 5s;
+ }
+ .curtain.hidden ~ .bg-pattern {
+  background-color: rgba(0,0,0,0);
+ }
+}
+
 .main {
  margin: auto;
  max-width: 800px;
@@ -313,14 +315,15 @@ hr {
 }
 </style>
 
-
 <div class="curtain">
  <figure>
   <div id="shape"></div><figcaption>loading...</figcaption>
  </figure>
 </div>
 
-<div class="bg">
+<div class="bg-gradient"></div>
+
+<div class="bg-pattern">
 <div class="main">
 
 <div class="poster">
