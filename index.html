@@ -80,6 +80,8 @@ u {
  text-decoration: none;
  display: inline-block;
 }
+.gessele {font-family: 'Gessele'; font-weight: normal;}
+.snell {font-family: 'Snell Roundhand'; font-weight: normal;}
 #curtain {
  position: fixed;
  z-index: 1000;
@@ -129,7 +131,7 @@ u {
  position: fixed;
  width: 100vw;
  height: 100vh;
- background-image:radial-gradient(closest-corner,#133,#133,#000);
+ background-image:radial-gradient(closest-corner,hsl(180,100%,8%),hsl(180,100%,8%),#000);
  background-repeat:no-repeat;
  z-index: -1000;
 }
@@ -282,25 +284,96 @@ footer a {
  text-decoration: none;
 }
 
+.glow {
+ margin: auto;
+ max-width: 600px;
+ display: flex;
+ flex-flow: column nowrap;
+ align-items: center;
+ text-align: center;
+}
+.glow img[src="ornament_4.svg"] {
+  width: 80%;
+  margin: 7em auto 1em;
+}
+.glow .gessele-title {
+ margin: 0;
+ font-family: "Gessele";
+ font-weight: normal;
+ line-height: 1;
+ color: var(--gold);
+ text-shadow: none;
+}
+.glow h1 {
+ font-size: 20vw;
+}
+.glow p {
+ font-size: 7vw;
+}
+@media screen and (min-width: 600px){
+ .glow h1 {
+  font-size: 120px;
+ }
+ .glow p {
+  font-size: 42px;
+ }
+}
+.glow img[src="ornament_5.svg"] {
+ width: 55%;
+ margin: 2em auto 10em;
+}
+.glow {
+ filter:opacity(0);
+ transition: 2s .4s;
+}
+#curtain.hidden ~ #bg-pattern .glow {
+ filter:opacity(1);
+}
+.youtube-wrapper {
+ max-width: 720px;
+ margin: auto;
+}
+@media screen and (min-width: 450px){
+ .youtube-wrapper {
+  margin: 3em;
+ }
+}@media screen and (min-width: 640px){
+ .youtube-wrapper {
+  margin: 8em 3em;
+ }
+}
+.youtube-container {
+ position: relative;
+ width: 100%;
+ height: 0;
+ padding-top: 56.25%; /* 16:9 */
+}
+.youtube-container iframe {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+}
+
+
+.message {
+ margin: 5em auto;
+ max-width: 540px;
+ padding: 0 1em;
+}
+
 article {
  margin: 3em 1em;
  font-size: 10pt;
  color: #555;
  letter-spacing: -.02em;
 }
-
 @media screen and (min-width: 450px){
  article {
-  margin: 3em 3em;
+  margin: 3em;
  }
 }
-
-.message {
- margin: 10em auto;
- max-width: 540px;
- padding: 0 1em;
-}
-
 article h2 {
  font-size: 110%;
 }
@@ -341,7 +414,7 @@ hr {
 
 <div id="bg-pattern">
 <div id="main">
-
+<!--
 <div class="poster">
 <div class="title">
 <h1>Kasumi Ensemble</h1>
@@ -374,9 +447,30 @@ hr {
 </div>
 
 <hr>
+-->
+
+<div class="glow">
+ <img src="ornament_4.svg">
+ <h1 class="gessele-title">Kasumi Ensemble</h1>
+ <p class="gessele-title" lang="de">Ein Kammerorchester von Medizinstudenten</p>
+ <img src="ornament_5.svg">
+</div>
 
 <article class="message">
 <p style="text-align: justify">『霞アンサンブル』は<a href="http://orchestra.musicinfo.co.jp/~kasumin/">広島大学霞管弦楽団</a>の有志団員による室内楽団です。室内楽を愛するメンバーにより2015年に結成されました。小編成の室内楽作品への取り組みを通じて、作品の理解と演奏技術・表現の向上を目的として<u>います。</u></p>
+</article>
+
+<div class="youtube-wrapper">
+ <div class="youtube-container">
+  <iframe type="text/html" width="720" height="405"
+src="https://www.youtube.com/embed/mpayLTy1N0E?modestbranding=1"
+frameborder="0" allowfullscreen></iframe>
+ </div>
+</div>
+
+<article class="announce">
+ <h1>次回公演</h1>
+ <p>2019年3月の開催に向け企画中です。しばらくお待ちください。</p>
 </article>
 
 <article>
@@ -465,7 +559,7 @@ hr {
 </script>
 </article>
 
-<footer>© 2015 Kasumi Ensemble <u>· <a href="https://www.dafont.com/gessele.font">Gessele Font</a> · <a href="https://www.fontpalace.com/font-download/Snell+Roundhand+Script/">Snell Roundhand Script</a> · <a href="https://www.clker.com/clipart-damask-pattern.html">Damask Pattern</a></u></footer>
+<footer>© 2015 Kasumi Ensemble <u>· <a href="https://www.dafont.com/gessele.font">Gessele Font</a> · <a href="https://www.fontpalace.com/font-download/Snell+Roundhand+Script/">Snell Roundhand</a> · <a href="https://www.clker.com/clipart-damask-pattern.html">Damask Pattern</a></u></footer>
 
 </div>
 </div>
