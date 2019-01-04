@@ -20,7 +20,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="author" content="霞アンサンブル">
-<meta name="description" content="広島大学霞管弦楽団有志による室内楽団。">
+<meta name="description" content="広島大学霞管弦楽団の有志による室内楽団。">
 <meta name="apple-mobile-web-app-title" content="霞アンサンブル">
 <meta name="format-detection" content="telephone=no,address=no,email=no">
 <meta name="viewport" content="initial-scale=1.0">
@@ -80,7 +80,7 @@ u {
  text-decoration: none;
  display: inline-block;
 }
-.curtain {
+#curtain {
  position: fixed;
  z-index: 1000;
  width: 100vw;
@@ -93,10 +93,10 @@ u {
  filter: opacity(1);
  transition: filter 1s;
 }
-.curtain.hidden {
+#curtain.hidden {
  filter:opacity(0);
 }
-.curtain figure {
+#curtain figure {
  position: absolute;
  left:0; right: 0; top: 0; bottom: 0; margin: auto;
  width: 50vw; max-width: 300px;
@@ -107,10 +107,10 @@ u {
 @keyframes appear {
  to { filter:opacity(1); }
 }
-.curtain.hidden figure {
+#curtain.hidden figure {
  display: none; /* no transition */
 }
-.curtain #shape {
+#curtain #shape {
  margin: auto;
  width: 50px;
  height: 50px;
@@ -122,30 +122,30 @@ u {
  0% { transform: scale(1); filter:opacity(.5);}
  100% { transform : scale(1.3); filter:opacity:(1);}
 }
-.curtain figcaption {
+#curtain figcaption {
  margin-top: 100px;
 }
-.bg-gradient {
+#bg-gradient {
  position: fixed;
  width: 100vw;
  height: 100vh;
- background-image:radial-gradient(closest-corner,#033,#000);
+ background-image:radial-gradient(closest-corner,#133,#133,#000);
  background-repeat:no-repeat;
  z-index: -1000;
 }
 @media screen and (min-width: 800px){
- .curtain ~ .bg-pattern {
+ #bg-pattern {
   background-image: url('damask-pattern-md.png');
   background-repeat: repeat;
   background-color: rgba(0,0,0,1);
-  transition: background-color 5s;
+  transition: background-color 3.5s;
  }
- .curtain.hidden ~ .bg-pattern {
+ #curtain.hidden ~ #bg-pattern {
   background-color: rgba(0,0,0,0);
  }
 }
 
-.main {
+#main {
  margin: auto;
  max-width: 800px;
  min-height: 100%;
@@ -331,16 +331,16 @@ hr {
 }
 </style>
 
-<div class="curtain">
+<div id="curtain">
  <figure>
   <div id="shape"></div><figcaption>loading...</figcaption>
  </figure>
 </div>
 
-<div class="bg-gradient"></div>
+<div id="bg-gradient"></div>
 
-<div class="bg-pattern">
-<div class="main">
+<div id="bg-pattern">
+<div id="main">
 
 <div class="poster">
 <div class="title">
@@ -376,7 +376,7 @@ hr {
 <hr>
 
 <article class="message">
-<p style="text-align: justify">『霞アンサンブル』は<a href="http://orchestra.musicinfo.co.jp/~kasumin/">広島大学霞管弦楽団</a>の有志団員による室内楽団です。室内楽を愛するメンバーにより2015年に結成されました。小編成の室内楽作品への取り組みを通じて演奏技術を高め、音楽に対する理解を深めることを目的として<u>います。</u></p>
+<p style="text-align: justify">『霞アンサンブル』は<a href="http://orchestra.musicinfo.co.jp/~kasumin/">広島大学霞管弦楽団</a>の有志団員による室内楽団です。室内楽を愛するメンバーにより2015年に結成されました。小編成の室内楽作品への取り組みを通じて、作品の理解と演奏技術・表現の向上を目的として<u>います。</u></p>
 </article>
 
 <article>
@@ -472,7 +472,7 @@ hr {
 
 <script>(function(){var r = "kas"+"umi.e"+"nsemb"+"le"+"@gm"+"ail.c"+"om"; document.getElementById("mail").innerHTML = '<a href="mailto:'+r+'">'+r+'</a>'})()</script>
 <script>
-const d = document.getElementsByClassName("curtain")[0];
+const d = document.getElementById("curtain");
 var t = setTimeout(function(){d.classList.add("hidden")},6000); /* ロードに6秒以上かかったら画面表示 */
 window.addEventListener("load",function(){
  clearTimeout(t);
