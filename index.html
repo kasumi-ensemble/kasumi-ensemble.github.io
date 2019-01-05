@@ -44,12 +44,13 @@
  font-display: swap;
 }
 :root {
+ /* actually those variables are unused because of compatibility */
  --gold: hsl(34,60%,67%);
  --dark-gold: hsl(34,60%,56%);
  --active-bg: radial-gradient(#b30,#920);
  --serif-ja: 'Hiragino Mincho ProN','Noto Serif JP',serif;
- --sans-ja:  'Hiragino Sans','Noto Sans JP',sans-serif;
- --sans-en:  'Helvetica','Arial',sans-serif;
+ --sans-ja: 'Hiragino Sans','Noto Sans JP',sans-serif;
+ --sans-en: 'Helvetica','Arial',sans-serif;
 }
 * {
  box-sizing: border-box;
@@ -60,8 +61,8 @@ html {
 body {
  margin: 0;
  padding: 0;
- color: var(--gold);
- font: normal 11pt/2 var(--serif-ja);
+ color: hsl(34,60%,67%); /* gold */
+ font: normal 11pt/2 'Hiragino Mincho ProN','Noto Serif JP',serif; /* serif-ja */
 }
 u {
  text-decoration: none;
@@ -91,7 +92,7 @@ a {
  transition: .1s;
 }
 a:hover,a:active {
- color: var(--dark-gold);
+ color: hsl(34,60%,56%); /* dark-gold */
 }
 hr {
  margin: 15px 0;
@@ -103,9 +104,9 @@ footer {
  margin: auto;
  padding: 0 0 75px;
  font-size: 8pt;
- font-family: var(--sans-en);
+ font-family: 'Helvetica','Arial',sans-serif; /* sans-en */
  font-weight: 200;
- color: var(--dark-gold);
+ color: hsl(34,60%,56%); /* dark-gold */
  text-align: center;
 }
 footer a {
@@ -122,7 +123,7 @@ footer a {
  z-index: 1000;
  width: 100vw;
  height: 100vh;
- font-family: var(--sans-en);
+ font-family: 'Helvetica','Arial',sans-serif; /* sans-en */
  font-weight: 200;
  text-align: center;
  color: rgba(255,255,255,.7);
@@ -157,8 +158,14 @@ footer a {
  animation: load 1s cubic-bezier(0.445, 0.05, 0.55, 0.95) .3s infinite alternate;
 }
 @keyframes load {
- 0% { transform: scale(1); filter:opacity(.5);}
- 100% { transform : scale(1.3); filter:opacity:(1);}
+ 0% {
+  transform: scale(1);
+  filter: opacity(.5);
+ }
+ 100% {
+  transform: scale(1.3);
+  filter: opacity(1);
+ }
 }
 #curtain figcaption {
  margin-top: 100px;
@@ -198,7 +205,7 @@ footer a {
 /* .poster */
 
 .poster .title {
- background: var(--active-bg);
+ background: radial-gradient(#b30,#920);
  padding: 50px 0;
  line-height: 0.9;
  text-align: center;
@@ -221,10 +228,10 @@ footer a {
  font-size: 5vw;
 }
 .poster .info {
- color: var(--dark-gold);
+ color: hsl(34,60%,56%); /* dark-gold */
  padding: 20px 0;
  font-size: 20pt;
- font-family: 'Snell Roundhand',var(--serif-ja);
+ font-family: 'Snell Roundhand','Hiragino Mincho ProN','Noto Serif JP',serif; /* snell or serif-ja */
  line-height: 1;
 }
 .poster .date {
@@ -307,7 +314,7 @@ footer a {
  color: #555;
  text-align: center;
  font-size: 9pt;
- font-family: var(--sans-ja);
+ font-family: 'Hiragino Sans','Noto Sans JP',sans-serif; /* sans-ja */
  font-weight: 200;
 }
 .poster .footer p {
@@ -330,7 +337,7 @@ footer a {
  font-family: "Gessele";
  font-weight: normal;
  line-height: 1;
- color: var(--gold);
+ color: hsl(34,60%,67%); /* gold */
 }
 .no-poster .h1 {
  font-size: 20vw;
@@ -394,7 +401,7 @@ footer a {
  text-align: justify;
 }
 .members {
- font-family: var(--sans-ja);
+ font-family: 'Hiragino Sans','Noto Sans JP',sans-serif; /* sans-ja */
  font-weight:200;
  font-size: 80%;
 }
@@ -565,7 +572,7 @@ footer a {
 <script>(function(){var r = "kas"+"umi.e"+"nsemb"+"le"+"@gm"+"ail.c"+"om"; document.getElementById("mail").innerHTML = '<a href="mailto:'+r+'">'+r+'</a>'})()</script>
 <script>
 const d = document.getElementById("curtain");
-var t = setTimeout(function(){d.classList.add("hidden")},6000); /* ロードに6秒以上かかったら画面表示 */
+var t = setTimeout(function(){d.classList.add("hidden")},6000); /* load time max = 6s */
 window.addEventListener("load",function(){
  clearTimeout(t);
  d.classList.add("hidden");
