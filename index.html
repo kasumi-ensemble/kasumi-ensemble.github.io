@@ -8,16 +8,6 @@
 
   gtag('config', 'UA-74076422-3');
 </script>
-<script>
-  (function(d) {
-    var config = {
-      kitId: 'wzu1vkp',
-      scriptTimeout: 3000,
-      async: true
-    },
-    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-  })(document);
-</script>
 <meta charset="UTF-8">
 <meta name="author" content="霞アンサンブル">
 <meta name="description" content="広島大学霞管弦楽団の有志による室内楽団。">
@@ -25,6 +15,7 @@
 <meta name="format-detection" content="telephone=no,address=no,email=no">
 <meta name="viewport" content="initial-scale=1.0">
 <title>霞アンサンブル</title>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300|Noto+Serif+JP:400,700&amp;subset=japanese" rel="stylesheet">
 <style>
 @font-face {
  font-family: Gessele;
@@ -56,8 +47,8 @@
  --gold: hsl(34,60%,67%);
  --dark-gold: hsl(34,60%,56%);
  --active-bg: radial-gradient(#b30,#920);
- --serif-ja: 'Hiragino Mincho ProN','source-han-serif-japanese',serif;
- --sans-ja:  'Hiragino Sans','Meiryo',sans-serif;
+ --serif-ja: 'Hiragino Mincho ProN','Noto Serif JP',serif;
+ --sans-ja:  'Hiragino Sans','Noto Sans JP',sans-serif;
  --sans-en:  'Helvetica','Arial',sans-serif;
 }
 * {
@@ -80,7 +71,6 @@ article {
  margin: 3em 1em;
  font-size: 10pt;
  color: #555;
- letter-spacing: -.02em;
 }
 @media screen and (min-width: 450px){
  article {
