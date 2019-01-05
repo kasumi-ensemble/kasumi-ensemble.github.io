@@ -470,7 +470,7 @@ hr {
 
 <div class="youtube-wrapper">
  <div class="youtube-container">
-  <div id="thumb-mpayLTy1N0E" class="thumb" style="background: url(https://i.ytimg.com/vi/mpayLTy1N0E/maxresdefault.jpg) center center / cover no-repeat;">
+  <div id="thumb-mpayLTy1N0E" class="thumb">
    <svg xmlns="http://www.w3.org/2000/svg" width="801" height="567" viewBox="0 0 601 425" version="1"><defs><clipPath id="a"><path d="M0 211h595v420H0zm0 0"/></clipPath></defs><g clip-path="url(#a)" transform="translate(3 -208)"><path id="youtubered" d="M583 277c-7-26-27-46-53-53-46-13-232-13-232-13s-187 0-233 13c-26 7-46 27-53 53C0 323 0 421 0 421s0 97 12 144c7 26 27 46 53 53 46 13 233 13 233 13s186 0 232-13c26-7 46-27 53-53 12-47 12-144 12-144s0-98-12-144"/></g><path d="M240 301l155-88-155-89v177" fill="#fff"/></svg>
   </div>
  </div>
@@ -584,6 +584,9 @@ window.addEventListener("load",function(){
 </script>
 <script>
 y = document.getElementById("thumb-mpayLTy1N0E");
+window.addEventListener("load",function(){
+ y.style.background = "url(https://i.ytimg.com/vi/mpayLTy1N0E/maxresdefault.jpg) center center / cover no-repeat";
+});
 y.addEventListener("click",function(){
  y.parentNode.innerHTML = '<iframe type="text/html" width="720" height="405" src="https://www.youtube.com/embed/mpayLTy1N0E?autoplay=1" frameborder="0" allowfullscreen></iframe>';
 })
