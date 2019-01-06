@@ -135,13 +135,22 @@ footer small {
  text-align: center;
  color: rgba(255,255,255,.7);
  background: #000;
- filter: opacity(1);
- transition: filter 1s;
+ transition: opacity 1s;
  user-select: none;
 }
 #curtain.hidden {
- filter: opacity(0);
+ opacity: 0;
  pointer-events: none;
+}
+@supports (filter: opacity(0)){
+ #curtain {
+  transition: filter 1s;
+  filter: opacity(1);
+ }
+ #curtain.hidden {
+  opacity: 1;
+  filter: opacity(0);
+ }
 }
 #curtain figure {
  position: absolute;
@@ -203,7 +212,7 @@ footer small {
   background-image: url('damask-pattern-md.png');
   background-repeat: repeat;
   background-color: rgba(0,0,0,1);
-  transition: background-color 3.5s;
+  transition: background-color 2.5s;
  }
  #curtain.hidden ~ #wrapper {
   background-color: rgba(0,0,0,0);
