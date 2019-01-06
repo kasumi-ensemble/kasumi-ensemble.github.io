@@ -171,6 +171,9 @@ footer a {
 #curtain figcaption {
  margin-top: 100px;
 }
+#curtain figcaption::after {
+ content: "loading..."; /* seo */
+}
 #container {
  margin: auto;
  max-width: 800px;
@@ -411,7 +414,7 @@ footer a {
 
 <div id="curtain">
  <figure>
-  <div id="shape"></div><figcaption>loading...</figcaption>
+  <div id="shape"></div><figcaption></figcaption>
  </figure>
 </div>
 
