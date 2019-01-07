@@ -135,13 +135,23 @@ footer small {
  text-align: center;
  color: rgba(255,255,255,.7);
  background: #000;
- filter: opacity(1);
- transition: filter 1s;
  user-select: none;
+ opacity: 1;
+ transition: opacity 1s;
 }
 #curtain.hidden {
- filter: opacity(0);
  pointer-events: none;
+ opacity: 0;
+}
+@supports (filter: opacity(0)){
+ #curtain {
+  filter: opacity(1);
+  transition: filter 1s;
+ }
+ #curtain.hidden {
+  filter: opacity(0);
+  opacity: 1;
+ }
 }
 #curtain figure {
  position: absolute;
