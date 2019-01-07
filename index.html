@@ -135,22 +135,13 @@ footer small {
  text-align: center;
  color: rgba(255,255,255,.7);
  background: #000;
- transition: opacity 1s;
+ filter: opacity(1);
+ transition: filter 1s;
  user-select: none;
 }
 #curtain.hidden {
- opacity: 0;
+ filter: opacity(0);
  pointer-events: none;
-}
-@supports (filter: opacity(0)){
- #curtain {
-  transition: filter 1s;
-  filter: opacity(1);
- }
- #curtain.hidden {
-  opacity: 1;
-  filter: opacity(0);
- }
 }
 #curtain figure {
  position: absolute;
@@ -611,7 +602,7 @@ dd {
 
 <script>(function(){var r = "kas"+"umi.e"+"nsemb"+"le"+"@gm"+"ail.c"+"om"; document.getElementById("mail").innerHTML = '<a href="mailto:'+r+'">'+r+'</a>'})()</script>
 <script>
-const d = document.getElementById("curtain");
+var d = document.getElementById("curtain");
 var t = setTimeout(function(){d.classList.add("hidden")},6000); /* load time max = 6s */
 window.addEventListener("load",function(){
  clearTimeout(t);
