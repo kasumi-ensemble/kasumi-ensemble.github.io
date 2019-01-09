@@ -123,6 +123,13 @@ footer small {
  display: block;
  color: hsl(34,60%,39%); /* dark-gold */
 }
+footer .youtube-channel {
+ display: block;
+ margin: auto;
+ width: 50px;
+ height: 50px;
+ background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024"><path d="M452.7 273.3c-105.4 1.8-175.8 6.3-203 13a79.1 79.1 0 0 0-38.4 20.4c-23.8 22.2-30.3 45-36.7 130a1229.5 1229.5 0 0 0 0 151c3.1 41.3 6.7 69.3 10.9 86a86 86 0 0 0 25.8 44.2c15.1 14 29.7 20 57.7 23.8 97.3 13.2 388.7 13.2 486 0 28-3.7 42.6-9.8 57.7-23.8 23.8-22.2 30.3-45.1 36.7-130.1a1228 1228 0 0 0 0-151c-4.3-57.5-9-86.1-16.9-103.2a86.7 86.7 0 0 0-44.4-43c-20.3-8.1-63-12.5-152.6-15.8-20.1-.7-123.4-2.5-133.5-2.3l-49.3.8zm44.5 169.3l87.5 49.8a893.8 893.8 0 0 1 34.3 19.9c0 .3-15.4 9.2-34.3 19.9-18.8 10.7-58.2 33-87.5 49.8a4771.6 4771.6 0 0 1-53.8 30.3c-.2 0-.4-45-.4-100s.2-100 .4-100 24.4 13.6 53.8 30.3z" fill="%23eb1c23"/></svg>') center center / cover no-repeat;
+}
 .gessele {
  font-family: 'Gessele'; font-weight: normal;
 }
@@ -490,7 +497,7 @@ footer small {
  position: relative;
  z-index: 100;
  display: block;
- padding: 60px 10px;
+ padding: 50px 10px;
  text-align: center;
  cursor: pointer;
  color: white;
@@ -509,6 +516,12 @@ footer small {
  font-family: 'Hiragino Mincho ProN','Noto Serif JP',serif; /* serif-ja */
  font-size: 15pt;
  padding: 40px 0 50px;
+ text-shadow: 0 0 10px rgba(255,255,255,.2);
+}
+@media screen and (min-width: 640px) {
+ .concert_summary_label .title {
+  font-size: 20pt;
+ }
 }
 .concert_summary_label .date {
  font-family: 'Helvetica','Arial',sans-serif; /* sans-en */
@@ -523,7 +536,7 @@ footer small {
  padding: 10px 0;
 }
 .concert_summary_label .seedetail::before {
- content: "\25BD\A0"; /* ▽ */
+ content: "▽ 詳細";
 }
 .concert_summary_label:hover .seedetail {
  text-decoration: underline;
@@ -532,12 +545,10 @@ footer small {
  display: none;
 }
 .concert_checkbox + .concert_detail {
- transition: 1s;
+
 }
 .concert_checkbox:not(:checked) + .concert_detail {
- height: 0;
- overflow: hidden;
- filter: opacity(0);
+ display: none;
 }
 .concert_detail {
  padding: 0 10px;
@@ -547,12 +558,29 @@ footer small {
  font-weight: 200;
  font-size: 10pt;
 }
+.concert_detail .program {
+ margin: 40px 0;
+}
 .concert_detail .program dt {
  font-weight: inherit;
  margin-top: 20px;
 }
 .concert_detail .program dd {
  margin-left: 1em;
+}
+@media screen and (min-width: 640px){
+ .concert_detail .program dt,
+ .concert_detail .program dd {
+  display: inline;
+  margin: 0;
+ }
+ .concert_detail .program dt::after {
+  content: "：";
+ }
+ .concert_detail .program dd::after {
+  white-space: pre;
+  content: "\A";
+ }
 }
 .concert_detail small {
  font-weight: normal;
@@ -571,8 +599,16 @@ footer small {
 }
 .concert_detail .greeting p,
 .concert_detail .notes p {
- margin: 0;
- text-indent: 1em;
+ display: inline;
+}
+.concert_detail .greeting p::before,
+.concert_detail .notes p::before {
+ content: "　";
+}
+.concert_detail .greeting p::after,
+.concert_detail .notes p::after {
+ white-space: pre;
+ content: "\A";
 }
 .concert_detail .signature {
  text-align: right;
@@ -581,14 +617,19 @@ footer small {
 .concert_detail u {
  text-indent: 0;
 }
+.concert_detail h3 {
+ font-size: 135%;
+}
+.concert_detail h4 {
+ font-size: 115%;
+}
 .concert_detail h5 {
  font-size: 100%;
- font-weight: normal;
  margin-bottom: 0;
 }
 .concert_detail h6 {
  font-size: 100%;
- margin: 0;
+ display: inline;
 }
 .concert_detail .members {
  font-family: 'Hiragino Sans','Noto Sans JP',sans-serif; /* sans-ja */
@@ -611,7 +652,7 @@ footer small {
  text-decoration: underline;
 }
 .closedetail::before {
- content: "\25B3\A0"; /* △ */
+ content: "△ 閉じる";
 }
 
  </style>
@@ -633,6 +674,7 @@ footer small {
  <div class="h2" lang="de">Ein Kammerorchester von Medizinstudenten</div>
  <div class="ornament2"><svg viewBox="0 0 207.6 42.5"><path d="M56.8 5c-1 0-2.1.5-2.8 2-1.9 3.5 3.3 6.2 5 2.6V9c1 .5 1 1.3-.6 2.6a3.1 3.1 0 0 1-1.8 2.3 10 10 0 0 1-5.3 1.4c-2.8 0-5.5-.6-8.2-1.5-4.5-1.4-8.9-3.6-13.7-3.7-4.5-.1-10.2 2.4-11.7 6.7-4 .5-8.7 1-11.3 4.4-4 5 1.6 15 8 10.8 5.7-3.9-3.3-9.1-3.5-3.5 0 .5.7.6.8.1.8 3.7-.5 4-4 1-2-2.6-2-5.3 0-8 1.3-1.4 3.4-2.1 5.3-2.6 1.4-.4 3-.7 4.4-.9 0 .9 0 1.8.2 2.8 1 3.5 8.7 8.5 10.2 2.8.8-3.3-4-4.2-3.4-.8 0 .2.4.2.4 0-.5 2.4-1.5 2.6-3.1.6-2-.5-2.7-1.6-2.5-3.5-.1-.7-.2-1.4-.1-2a96.2 96.2 0 0 1 30.8 2.1l1.2.2a33.1 33.1 0 0 0-23 8c-.2.2.2.7.5.5 6-4.2 12.8-7.1 20.3-7.3 7.1-.3 13.7 2.2 20.4 4.4A47.7 47.7 0 0 0 88 29c-.8.8-1.8 1.4-2.9 2-5.7 2.6-11.8.3-17.3-1.8-5.5-2-14.7-4.8-18.9 1.5-1.9 2.9.5 8.9 4.3 6 2.7-2-.5-5.6-2.7-3.5-.5-1.5 0-2.5 1.2-3.1 1-.8 2-1.3 3.3-1.6 1.7-.4 3.5-.3 5.2 0 2.8.4 5.4 1.4 8 2.4 4.4 1.7 9 3.3 13.9 2.5 3.1-.5 6.2-2.3 8.2-4.7 3.8-.8 7.3-2.7 9.8-6.2 2.3-3.2 3.4-7.8.8-11-1.8-2.3-5.1-3.5-7.8-2.2-2.2 1.1-3.8 4.8-1.1 6.4 2.2 1.4 4.2-.5 3.7-2.7 0-.5-.7-.5-1-.1.7-2.7 1.9-3.3 3.7-1.9a5.6 5.6 0 0 1 2.6 5c0 3-1.6 5.6-3.7 7.5a15.9 15.9 0 0 1-5.8 3.2c1-2.2 1.2-4.8 0-7.4-2-4.2-9.4-6-11.8-1.2-2 4 3.7 6 4 2.4.1-.5-.6-.6-.8-.3l.5-3.3c1.3-.4 2.6-.3 3.7.3 2.1 1 3.7 3.5 3.7 5.8 0 1.6-.5 3-1.3 4.2a23 23 0 0 1-3.6.5c-8 .4-15.5-3-23-5.3l-1.7-.5c7.1.4 14.2-.9 18.6-7.3.2-.3-.3-.7-.6-.4-10 11.6-26.3 4.7-39 3-6.9-.9-14-1.1-21-.4.4-.9 1-1.7 1.8-2.5 3-2.8 7.4-3 11.2-2.3 4.8 1 9.2 3.4 14 4.4 5 1.1 13.5.7 14.8-5.6.6-2.8-2-5.7-4.3-5.8zm94.3 0c-2.3 0-4.8 2.2-4.7 4.9.2 6.7 9.3 7.6 14.2 6.7 5-1 9.6-3.6 14.7-4.6 3.5-.7 7.3-.5 10.3 1.6 1 .8 2.2 1.9 2.8 3.2-7-.7-14.2-.5-21.2.4-12.6 1.7-29 8.6-38.9-3-.3-.3-.8 0-.6.4 4.4 6.4 11.5 7.7 18.6 7.3l-1.7.5c-7.4 2.3-15 5.7-23 5.3a23 23 0 0 1-3.7-.5 7.8 7.8 0 0 1-1.2-4.1c0-2 1.2-4.3 2.7-5.5 1-.7 2.1-1 3.3-.7 2-.4 2.6.7 2 3.3-.3-.3-1-.2-1 .3.4 3.5 5.6 1.7 4.3-1.9-1.8-5.6-9.9-3.5-12 .7a8.1 8.1 0 0 0 0 7.4c-2.1-.7-4.2-1.8-5.8-3.3-2-1.8-3.8-4.5-3.7-7.3 0-2.2.8-4 2.6-5.1 1.8-1.4 3-.8 3.6 1.9-.1-.4-.8-.4-1 0-.4 2.3 1.6 4.2 3.8 2.8 2.5-1.5 1.3-4.9-.6-6.2-2.7-1.7-6.4-.4-8.3 2-2.6 3.2-1.5 7.9.8 11 2.5 3.5 6 5.3 9.8 6.1 1.9 2.4 4.7 4.1 7.6 4.7 4.7 1 9.4-.4 13.8-2 2.4-1 4.9-2 7.4-2.6 2.1-.5 4.4-.7 6.5-.2l2.4 1c1.8.6 2.5 1.8 2 3.6-2-2-5.2 1.4-2.6 3.5 3.7 3.1 6.1-3 4.3-6-3.9-6-12.9-3.7-18.2-1.7-5.4 2-11.2 4.5-17 2.5-1.5-.5-2.9-1.3-4-2.4 6 .6 12.8-1 18.2-2.8 6.9-2.3 13.7-4.9 21.1-4.6 7.5.2 14.2 3 20.3 7.3.3.2.7-.3.4-.5-6.6-5.8-14.7-8.1-22.9-8l1.1-.2a107.5 107.5 0 0 1 31.2-2.1l-.7 4.1c-1.9 3.1-3.6 3.4-5.2 1 .1 0 .2 0 .3-.2.6-3.4-4.3-2.5-3.4.7 1.5 5.7 9.2 1 10.2-2.7.2-1 .3-1.9.2-2.8 1.5.2 3 .5 4.4.9 2 .5 4 1.1 5.3 2.7 2 2.7 2 5.3 0 8-3.5 3-4.8 2.6-4-1 0 .4.8.3.8-.2-.2-5.6-9.1-.4-3.4 3.5 6.3 4.3 12-5.8 8-10.8-2.7-3.4-7.4-4-11.5-4.4-1.4-4.1-6.6-6.6-10.8-6.7-4.8 0-9.3 2-13.8 3.5-2.6.9-5.4 1.7-8.2 1.7-1.9 0-3.9-.3-5.5-1.2l-1.8-1.1c-1.8-1.3-2.1-2.5-1-3.5 1.6 3.5 6.7 1 5-2.6-.6-1.3-1.6-1.9-2.6-2z"/></svg></div>
 </figure>
+
 <main>
 
 <article class="message">
@@ -658,8 +700,8 @@ footer small {
 <h2>過去の公演</h2>
 
 <div class="concerts">
-<div class="concert_summary" style="background: hsl(355,40%,20%)">
- <ul class="deco" style="color: hsl(355,40%,30%)">
+<div class="concert_summary" style="background: hsl(0,40%,20%)">
+ <ul class="deco" style="color: hsl(0,40%,30%)">
   <li>Debussy
   <li>Fauré
   <li>Saint-Saëns
@@ -668,7 +710,7 @@ footer small {
   <span>
    <span class="title">第7回 室内楽コンサート</span>
    <span class="date">2018.12.18</span>
-   <span class="seedetail">詳細</span>
+   <span class="seedetail"></span>
   </span>
  </label>
 </div>
@@ -676,7 +718,7 @@ footer small {
 <div class="concert_detail">
 <h3>第7回 室内楽コンサート</h3>
 
-<p class="info"><u>2018.12.18（火）19:00-</u> <u>広島市南区民文化センター スタジオ</u></p></p>
+<p class="info"><u>2018.12.18（火）19:00 開演</u> <u>広島市南区民文化センター スタジオ</u></p></p>
 
 <dl class="program">
 <dt>サン゠サーンス<dd>タランテラ 作品6
@@ -723,7 +765,7 @@ footer small {
 
 <p class="members"><u>フルート 森田智子</u> <u>クラリネット 青山雄一郎</u> <u>ピアノ 渡辺詩織</u> <u>代表 青山雄一郎</u></p>
 
-<label class="closedetail" for="concert20181218">閉じる</label>
+<label class="closedetail" for="concert20181218"></label>
 </div>
 
 <div class="concert_summary" style="background: hsl(20,40%,20%)">
@@ -736,7 +778,7 @@ footer small {
   <span>
    <span class="title">第6回 室内楽コンサート</span>
    <span class="date">2018.11.11</span>
-   <span class="seedetail">詳細</span>
+   <span class="seedetail"></span>
   </span>
  </label>
 </div>
@@ -744,7 +786,7 @@ footer small {
 <div class="concert_detail">
 <h3>第6回 室内楽コンサート</h3>
 
-<p class="info"><u>2018.11.11（日）15:00-</u> <u>広島大学霞キャンパス 霞祭屋内ステージ</u></p>
+<p class="info"><u>2018.11.11（日）15:00 開演</u> <u>広島大学霞キャンパス 霞祭屋内ステージ</u></p>
 
 <dl class="program">
 <dt>モーツァルト<dd>弦楽四重奏曲第17番 K.458《狩》より第1楽章
@@ -759,7 +801,7 @@ footer small {
 
 <p class="members"><u>ヴァイオリン 土ヶ内悠人・平岡敬一・近藤紗矢・堀江航</u> <u>ヴィオラ 張　越・近藤紗矢</u> <u>チェロ 松本洋一郎・奥崎体</u> <u>クラリネット 青山雄一郎</u> <u>代表 近藤紗矢</u></p>
 
-<label class="closedetail" for="concert20181111">閉じる</label>
+<label class="closedetail" for="concert20181111"></label>
 </div>
 
 <div class="concert_summary" style="background: hsl(80,40%,20%)">
@@ -772,7 +814,7 @@ footer small {
   <span>
    <span class="title">第5回 室内楽コンサート</span>
    <span class="date">2018.06.23</span>
-   <span class="seedetail">詳細</span>
+   <span class="seedetail"></span>
   </span>
  </label>
 </div>
@@ -780,7 +822,7 @@ footer small {
 <div class="concert_detail">
 <h3>第5回 室内楽コンサート</h3>
 
-<p class="info"><u>2018.6.23（土）19:00-</u> <u>広島市南区民文化センター スタジオ</u></p>
+<p class="info"><u>2018.6.23（土）19:00 開演</u> <u>広島市南区民文化センター スタジオ</u></p>
 
 <dl class="program">
 <dt>モーツァルト<dd>管楽セレナード第11番 K.375
@@ -823,7 +865,7 @@ footer small {
 
 <p class="members"><u>オーボエ 大野美奈（賛助）・久保田千貴</u> <u>クラリネット 青山雄一郎・山田息吹</u> <u>ファゴット 青野咲希（OG）・山田裕己（賛助）</u> <u>ホルン 加藤秀範・濱内なつき・湯澤実歩</u> <u>チェロ 奥崎体</u> <u>コントラバス 井上和子</u> <u>代表 青山雄一郎</u></p>
 
-<label class="closedetail" for="concert20180623">閉じる</label>
+<label class="closedetail" for="concert20180623"></label>
 </div>
 
 <div class="concert_summary" style="background: hsl(40,40%,20%)">
@@ -836,7 +878,7 @@ footer small {
   <span>
    <span class="title">第4回 室内楽コンサート</span>
    <span class="date">2018.06.16</span>
-   <span class="seedetail">詳細</span>
+   <span class="seedetail"></span>
   </span>
  </label>
 </div>
@@ -844,7 +886,7 @@ footer small {
 <div class="concert_detail">
 <h3>第4回 室内楽コンサート</h3>
 
-<p class="info"><u>2018.6.16（土）19:00-</u> <u>広島市南区民文化センター スタジオ</u></p>
+<p class="info"><u>2018.6.16（土）19:00 開演</u> <u>広島市南区民文化センター スタジオ</u></p>
 
 <dl class="program">
 <dt>サン゠サーンス<dd>デンマークとロシアの歌による<ruby>綺想曲<rt>カプリス</ruby>
@@ -873,7 +915,7 @@ footer small {
 
 <p class="members"><u>ヴァイオリン 平岡敬一・山田菜央・甲斐裕子</u> <u>ヴィオラ 近藤紗矢</u> <u>チェロ 松本洋一郎・奥崎体</u> <u>コントラバス 長岡真実</u> <u>フルート 金井陽奈</u> <u>オーボエ 高木蒼生</u> <u>クラリネット 青山雄一郎</u> <u>トランペット 上田智也</u> <u>ピアノ 渡辺詩織</u> <u>代表 渡辺詩織</u></p>
 
-<label class="closedetail" for="concert20180616">閉じる</label>
+<label class="closedetail" for="concert20180616"></label>
 </div>
 
 <div class="concert_summary" style="background: hsl(210,40%,20%)">
@@ -887,7 +929,7 @@ footer small {
   <span>
    <span class="title">第3回 室内楽コンサート</span>
    <span class="date">2017.6.4</span>
-   <span class="seedetail">詳細</span>
+   <span class="seedetail"></span>
   </span>
  </label>
 </div>
@@ -895,7 +937,7 @@ footer small {
 <div class="concert_detail">
 <h3>第3回 室内楽コンサート</h3>
 
-<p class="info"><u>2017.6.4（日）19:00-</u> <u>広島市南区民文化センター スタジオ</u></p>
+<p class="info"><u>2017.6.4（日）19:00 開演</u> <u>広島市南区民文化センター スタジオ</u></p>
 
 <dl class="program">
 <dt>フンメル<dd>七重奏曲第2番《軍隊》より第1楽章
@@ -925,7 +967,7 @@ footer small {
 
 <p class="members"><u>ヴァイオリン 平岡敬一・山田菜央</u> <u>ヴィオラ 近藤紗矢</u> <u>チェロ 松本洋一郎・奥崎体</u> <u>コントラバス 井上和子</u> <u>フルート 森田智子</u> <u>クラリネット 青山雄一郎</u> <u>トランペット 上田智也</u> <u>ピアノ 奥崎体・渡辺詩織</u> <u>代表 松本洋一郎</u></p>
 
-<label class="closedetail" for="concert20170604">閉じる</label>
+<label class="closedetail" for="concert20170604"></label>
 </div>
 
 <div class="concert_summary" style="background: hsl(250,40%,20%)">
@@ -939,7 +981,7 @@ footer small {
   <span>
    <span class="title">第2回 室内楽コンサート</span>
    <span class="date">2016.12.27</span>
-   <span class="seedetail">詳細</span>
+   <span class="seedetail"></span>
   </span>
  </label>
 </div>
@@ -947,7 +989,7 @@ footer small {
 <div class="concert_detail">
 <h3>第2回 室内楽コンサート</h3>
 
-<p class="info"><u>2016.12.27（火）14:00-</u> <u>東広島芸術文化ホール くらら 小ホール</u></p>
+<p class="info"><u>2016.12.27（火）14:00 開演</u> <u>東広島芸術文化ホール くらら 小ホール</u></p>
 
 <dl class="program">
 <dt>ボザ<dd>夏山の一日
@@ -984,11 +1026,11 @@ footer small {
 
 <p class="members"><u>指揮 青山雄一郎</u> <u>ヴァイオリン 近藤紗矢・鵜飼翔一・瀧本朋代・山田菜央・井上明香里（賛助）・齋藤紘希（賛助）・柳谷萌（賛助）</u> <u>ヴィオラ 張　越・山口栞・久保怜香（賛助）</u> <u>チェロ 松本洋一郎・奥崎体</u> <u>コントラバス 今川大樹（賛助）</u> <u>フルート 藤井泰斗・森田智子・金井陽奈・藤井愛弓</u> <u>オーボエ 東真琴・大野美奈（賛助）</u> <u>クラリネット 青山雄一郎・福原真由・山田息吹</u> <u>ファゴット 森田智子・川口貴寛（賛助）</u> <u>ホルン 大内徳子・加藤秀範</u> <u>トランペット 上田智也・福原ゆい</u> <u>トロンボーン 頼近恭典・山口瑞生・泉亮介</u> <u>ティンパニ 渡辺詩織</u> <u>ピアノ 渡辺詩織</u> <u>代表 上田智也</u></p>
 
-<label class="closedetail" for="concert20161227">閉じる</label>
+<label class="closedetail" for="concert20161227"></label>
 </div>
 
-<div class="concert_summary" style="background: hsl(350,40%,20%)">
- <ul class="deco" style="color: hsl(350,40%,30%)">
+<div class="concert_summary" style="background: hsl(340,40%,20%)">
+ <ul class="deco" style="color: hsl(340,40%,30%)">
   <li>Britten
   <li>Honegger
   <li>Bozza
@@ -998,7 +1040,7 @@ footer small {
   <span>
    <span class="title">室内楽コンサート（第1回）</span>
    <span class="date">2015.12.22</span>
-   <span class="seedetail">詳細</span>
+   <span class="seedetail"></span>
   </span>
  </label>
 </div>
@@ -1036,7 +1078,7 @@ footer small {
 
 <p class="members"><u>ヴァイオリン 平岡敬一・稲葉えり・住本夏子・瀧本朋代</u> <u>ヴィオラ 張　越・近藤紗矢・山口栞</u> <u>チェロ 松本洋一郎・奥崎体</u> <u>コントラバス 井上和子</u> <u>フルート 森田智子・金井陽奈</u> <u>オーボエ 東真琴</u> <u>クラリネット 青山雄一郎</u> <u>ファゴット 城もも子</u> <u>ホルン 吉山紗代</u> <u>ピアノ 渡辺詩織</u> <u>代表 松本洋一郎</u></p>
 
-<label class="closedetail" for="concert20151222">閉じる</label>
+<label class="closedetail" for="concert20151222"></label>
 </div>
 
 </div>
@@ -1050,7 +1092,7 @@ footer small {
 
 </main>
 
-<footer><u><a href="https://www.dafont.com/gessele.font">Gessele </a></u> <u><a href="https://www.fontpalace.com/font-download/Snell+Roundhand+Script/">Snell Roundhand</a></u> <u><a href="https://www.freepik.com/free-vector/variety-of-retro-ornaments_798085.htm">Retro Ornaments</a></u> <u><a href="https://www.clker.com/clipart-damask-pattern.html">Damask Pattern</a></u><small>© 2015 Kasumi Ensemble</small></footer>
+<footer><a class="youtube-channel" href="https://www.youtube.com/channel/UCoKz2Ru59IHHOXYQwJqNQzw"></a><u><a href="https://www.dafont.com/gessele.font">Gessele </a></u> <u><a href="https://www.fontpalace.com/font-download/Snell+Roundhand+Script/">Snell Roundhand</a></u> <u><a href="https://www.freepik.com/free-vector/variety-of-retro-ornaments_798085.htm">Retro Ornaments</a></u> <u><a href="https://www.clker.com/clipart-damask-pattern.html">Damask Pattern</a></u><small>© 2015 Kasumi Ensemble</small></footer>
 
 </div>
 </div>
