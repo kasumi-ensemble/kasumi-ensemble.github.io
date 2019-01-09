@@ -532,12 +532,15 @@ footer small {
  display: none;
 }
 .concert_checkbox + .concert_detail {
+ transition: 1s;
+}
+.concert_checkbox:not(:checked) + .concert_detail {
  height: 0;
  overflow: hidden;
- transition: .3s;
+ filter: opacity(0);
 }
-.concert_checkbox:checked + .concert_detail {
- height: auto;
+.concert_detail {
+ padding: 0 10px;
 }
 .concert_detail .info {
  font-family: "Hiragino Sans","Noto Sans",sans-serif; /* sans-ja */
@@ -549,7 +552,7 @@ footer small {
  margin-top: 20px;
 }
 .concert_detail .program dd {
- margin-left: 30px;
+ margin-left: 1em;
 }
 .concert_detail small {
  font-weight: normal;
